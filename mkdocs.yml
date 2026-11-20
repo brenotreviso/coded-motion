@@ -1,0 +1,97 @@
+site_name: The Coded Motion Guide
+site_description: Make warm, alive motion graphics with code and direct AI agents to do it well. For beginners.
+site_author: Breno Treviso
+site_url: https://brenotreviso.github.io/coded-motion/
+repo_url: https://github.com/brenotreviso/coded-motion
+repo_name: brenotreviso/coded-motion
+edit_uri: edit/main/docs/
+copyright: Text CC BY 4.0 · Code MIT · © 2026 Breno Bergamin (Breno Treviso)
+docs_dir: docs
+hooks:
+  - scripts/mkdocs_hooks.py
+
+theme:
+  name: material
+  language: en
+  font:
+    text: Nunito
+    code: JetBrains Mono
+  palette:
+    - scheme: default
+      primary: deep orange
+      accent: amber
+      toggle: { icon: material/weather-night, name: Dark mode }
+    - scheme: slate
+      primary: deep orange
+      accent: amber
+      toggle: { icon: material/weather-sunny, name: Light mode }
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc: { permalink: true }
+  - pymdownx.details
+  - pymdownx.highlight: { anchor_linenums: true }
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tasklist: { custom_checkbox: true }
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+
+nav:
+  - Home: index.md
+  - Guide:
+      - 0 · Start here: 00-start-here.md
+      - 1 · Workflow: 01-workflow.md
+      - 2 · Brand book: 02-brand-book.md
+      - 3 · Design system & tokens: 03-design-system.md
+      - 4 · Motion principles: 04-motion-principles.md
+      - 5 · Types of code: 05-code-types.md
+      - 6 · Animation libraries: 06-animation-libraries.md
+      - 7 · Video pipeline: 07-video-pipeline.md
+      - 8 · Prompting AI: 08-prompting-ai.md
+      - 9 · Trends: 09-trends.md
+      - 10 · Usage & cost: 10-usage-and-cost.md
+      - 11 · Agent instructions: 11-agent-instructions.md
+      - 12 · Library & exercises: 12-library-and-exercises.md
+  - Curriculum:
+      - curriculum/README.md
+      - Week 1 · First animation: curriculum/week-1.md
+      - Week 2 · Easing & timing: curriculum/week-2.md
+      - Week 3 · Arcs, anchors, squash: curriculum/week-3.md
+      - Week 4 · Tokens, text, character: curriculum/week-4.md
+      - Week 5 · Remotion & video: curriculum/week-5.md
+      - Week 6 · AI agents + final project: curriculum/week-6.md
+  - Prompts:
+      - prompts/README.md
+      - Claude: prompts/claude.md
+      - OpenAI: prompts/openai.md
+      - Gemini: prompts/gemini.md
+      - Grok: prompts/grok.md
+      - Cursor: prompts/cursor.md
+      - Shared snippets: prompts/shared-snippets.md
+  - Checklists:
+      - checklists/README.md
+      - New project: checklists/new-project.md
+      - Brand check: checklists/brand-check.md
+      - QA before render: checklists/qa-before-render.md
+      - Publish: checklists/publish.md
+      - Usage-saving: checklists/usage-saving.md
+  - Fix stiff motion: fix-stiff-motion.md
+  - Glossary: glossary.md
+  - Sources: sources.md

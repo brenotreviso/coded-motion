@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Squash and stretch · Coded Motion</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../tokens/tokens.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Nunito:wght@400;700&display=swap" />
+<style>
+  /* Fallbacks after the comma keep this file working even without tokens.css */
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: var(--color-cream, #fbf4e9); color: var(--color-ink, #3b2f2a);
+         font-family: var(--font-body, Nunito, Arial, sans-serif); }
+  h1 { font-family: var(--font-display, Fraunces, Georgia, serif); font-weight: 600; margin: 0 0 8px; font-size: 28px; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+  .hint { opacity: .75; margin: 0 0 24px; line-height: 1.5; }
+  button { font: inherit; background: var(--color-ink, #3b2f2a); color: var(--color-cream, #fbf4e9); border: 0;
+           border-radius: 999px; padding: 10px 20px; cursor: pointer; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js"></script>
+</head>
+<body>
+<style>
+  .floor { position:absolute; left:0; right:0; bottom:40px; height:3px; background:var(--color-ink,#3b2f2a); opacity:.3; }
+  .stage { position:relative; height:420px; }
+  .blob { position:absolute; left:50%; bottom:43px; width:110px; height:110px; margin-left:-55px;
+          background:var(--color-apricot,#f2a65a); border-radius:50% 50% 46% 46%; }
+  .eye { position:absolute; top:38px; width:12px; height:16px; border-radius:50%; background:var(--color-ink,#3b2f2a); }
+</style>
+<div class="wrap">
+  <h1>05 · Squash &amp; stretch</h1>
+  <p class="hint">The blob <b>stretches</b> as it falls fast, <b>squashes</b> when it lands, then springs back. Volume stays the same: when it gets wider it also gets shorter (<code>scaleX × scaleY ≈ 1</code>). The anchor is at the bottom so it squashes onto the floor, not into the air.</p>
+  <div class="stage"><div class="floor"></div>
+    <div class="blob" id="blob"><div class="eye" style="left:34px"></div><div class="eye" style="right:34px"></div></div>
+  </div>
+</div>
+<script>
+  gsap.set("#blob", { transformOrigin: "50% 100%" });
+  const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.3 });
+  tl.to("#blob", { y: -260, duration: 0.45, ease: "power2.out" })                         // rise, slowing at the top
+    .to("#blob", { scaleY: 1.18, scaleX: 0.85, duration: 0.35, ease: "power2.in" }, ">-0.05") // stretch while speeding down
+    .to("#blob", { y: 0, duration: 0.4, ease: "power2.in" }, "<")                         // fall
+    .to("#blob", { scaleY: 0.7, scaleX: 1.35, duration: 0.08, ease: "power1.out" })       // SQUASH on impact
+    .to("#blob", { scaleY: 1, scaleX: 1, duration: 0.6, ease: "elastic.out(1, 0.35)" })    // wobble back to normal
+    // anticipation for the next jump: a small crouch
+    .to("#blob", { scaleY: 0.85, scaleX: 1.15, duration: 0.18, ease: "sine.inOut" })
+    .to("#blob", { scaleY: 1, scaleX: 1, duration: 0.12 });
+</script>
+</body>
+</html>

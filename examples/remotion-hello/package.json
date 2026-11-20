@@ -1,0 +1,22 @@
+{
+  "name": "remotion-hello",
+  "private": true,
+  "description": "Minimal Remotion composition for the Coded Motion guide (Little Lantern brand).",
+  "scripts": {
+    "studio": "remotion studio",
+    "still": "remotion still GlowIntro out/still.png --frame=45",
+    "preview": "remotion render GlowIntro out/preview.mp4 --scale=0.5",
+    "render": "remotion render GlowIntro out/glow-intro.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.545",
+    "@remotion/google-fonts": "4.0.545",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.545"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "typescript": "5.9.3"
+  }
+}

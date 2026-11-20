@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Motion blur · Coded Motion</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../tokens/tokens.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Nunito:wght@400;700&display=swap" />
+<style>
+  /* Fallbacks after the comma keep this file working even without tokens.css */
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: var(--color-cream, #fbf4e9); color: var(--color-ink, #3b2f2a);
+         font-family: var(--font-body, Nunito, Arial, sans-serif); }
+  h1 { font-family: var(--font-display, Fraunces, Georgia, serif); font-weight: 600; margin: 0 0 8px; font-size: 28px; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+  .hint { opacity: .75; margin: 0 0 24px; line-height: 1.5; }
+  button { font: inherit; background: var(--color-ink, #3b2f2a); color: var(--color-cream, #fbf4e9); border: 0;
+           border-radius: 999px; padding: 10px 20px; cursor: pointer; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <h1>04 · Motion blur</h1>
+  <p class="hint">A real camera smears fast objects. Code doesn't, unless you fake it. Top: no blur (looks like it "strobes" at speed). Middle: <b>sub-frame sampling</b>: draw the object at several in-between times inside one frame and blend them. Bottom: the cheap trick: stretch the object along its direction of travel by its speed.</p>
+  <canvas id="c" width="800" height="360" style="width:100%;max-width:800px;background:#f4e7d5;border-radius:16px"></canvas>
+</div>
+<script>
+  const c = document.getElementById("c"), ctx = c.getContext("2d");
+  const W = 800, R = 22, PERIOD = 1.6;        // seconds for one trip across and back
+  // Position over time with an ease-in-out, so the speed changes (blur should grow and shrink)
+  const xAt = (t) => { const p = (t % PERIOD) / PERIOD; const tri = p < .5 ? p * 2 : 2 - p * 2;
+                       const e = tri < .5 ? 4*tri*tri*tri : 1 - Math.pow(-2*tri + 2, 3) / 2; return 60 + e * (W - 120); };
+  const dot = (x, y, a = 1, sx = 1) => { ctx.save(); ctx.globalAlpha = a; ctx.translate(x, y); ctx.scale(sx, 1 / Math.sqrt(sx));
+                       ctx.beginPath(); ctx.arc(0, 0, R, 0, Math.PI * 2); ctx.fillStyle = "#f2a65a"; ctx.fill(); ctx.restore(); };
+  const SHUTTER = 1 / 30, SAMPLES = 12;       // pretend shutter is open for one 30 fps frame
+  gsap.ticker.add((time) => {
+    ctx.clearRect(0, 0, W, 360);
+    ctx.fillStyle = "#3b2f2a"; ctx.font = "14px Nunito, sans-serif";
+    ctx.fillText("no blur", 16, 30); ctx.fillText("sub-frame samples", 16, 150); ctx.fillText("stretch by speed", 16, 270);
+    dot(xAt(time), 60);                                                    // 1. no blur
+    for (let i = 0; i < SAMPLES; i++) dot(xAt(time - SHUTTER * i / SAMPLES), 180, 1 / SAMPLES * 1.6); // 2. accumulate
+    const v = Math.abs(xAt(time) - xAt(time - SHUTTER)) ;                  // pixels moved this frame
+    dot(xAt(time - SHUTTER / 2), 300, 1, 1 + v / (2 * R));                 // 3. stretch
+  });
+</script>
+</body>
+</html>

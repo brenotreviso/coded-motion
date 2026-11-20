@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Anchor point / transform-origin · Coded Motion</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../tokens/tokens.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Nunito:wght@400;700&display=swap" />
+<style>
+  /* Fallbacks after the comma keep this file working even without tokens.css */
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: var(--color-cream, #fbf4e9); color: var(--color-ink, #3b2f2a);
+         font-family: var(--font-body, Nunito, Arial, sans-serif); }
+  h1 { font-family: var(--font-display, Fraunces, Georgia, serif); font-weight: 600; margin: 0 0 8px; font-size: 28px; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+  .hint { opacity: .75; margin: 0 0 24px; line-height: 1.5; }
+  button { font: inherit; background: var(--color-ink, #3b2f2a); color: var(--color-cream, #fbf4e9); border: 0;
+           border-radius: 999px; padding: 10px 20px; cursor: pointer; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js"></script>
+</head>
+<body>
+<style>
+  .stage { display:flex; gap:48px; justify-content:center; align-items:flex-start; margin-top:24px; }
+  .col { text-align:center; font-size:14px; width:200px; }
+  .hook { width:12px; height:12px; border-radius:50%; background:var(--color-ink,#3b2f2a); margin:0 auto; }
+  .lantern { width:70px; height:150px; margin:0 auto; position:relative; }
+  .lantern .string { width:3px; height:70px; background:var(--color-ink,#3b2f2a); margin:0 auto; }
+  .lantern .body { width:70px; height:80px; border-radius:24px; background:var(--color-apricot,#f2a65a);
+                   box-shadow:0 0 40px var(--color-honey,#f9d27d); }
+  .dot { position:absolute; width:12px; height:12px; border-radius:50%; background:#d9534f; outline:3px solid #fff; }
+</style>
+<div class="wrap">
+  <h1>03 · Anchor point (transform-origin)</h1>
+  <p class="hint">The <b>anchor point</b> (CSS calls it <code>transform-origin</code>) is the pin that rotation and scale happen around. Same rotation, three different anchors. The red dot marks the anchor. Only the right one swings like a real hanging lantern.</p>
+  <div class="stage">
+    <div class="col"><div class="hook"></div><div class="lantern" id="l1"><div class="string"></div><div class="body"></div><div class="dot" style="left:29px;top:69px"></div></div><p>center (default)<br><code>"50% 50%"</code></p></div>
+    <div class="col"><div class="hook"></div><div class="lantern" id="l2"><div class="string"></div><div class="body"></div><div class="dot" style="left:29px;top:144px"></div></div><p>bottom<br><code>"50% 100%"</code></p></div>
+    <div class="col"><div class="hook"></div><div class="lantern" id="l3"><div class="string"></div><div class="body"></div><div class="dot" style="left:29px;top:-6px"></div></div><p>top, at the hook<br><code>"50% 0%"</code></p></div>
+  </div>
+</div>
+<script>
+  // Set the anchor first, then animate rotation. Same tween settings for all three.
+  gsap.set("#l1", { transformOrigin: "50% 50%" });
+  gsap.set("#l2", { transformOrigin: "50% 100%" });
+  gsap.set("#l3", { transformOrigin: "50% 0%" });
+  gsap.fromTo([ "#l1", "#l2", "#l3" ], { rotation: -18 },
+    { rotation: 18, duration: 1.4, ease: "sine.inOut", yoyo: true, repeat: -1 });
+  // For SVG elements, GSAP also offers svgOrigin (an anchor in the SVG's own coordinates).
+</script>
+</body>
+</html>

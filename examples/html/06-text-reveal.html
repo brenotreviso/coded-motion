@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Text reveal · Coded Motion</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../tokens/tokens.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Nunito:wght@400;700&display=swap" />
+<style>
+  /* Fallbacks after the comma keep this file working even without tokens.css */
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: var(--color-cream, #fbf4e9); color: var(--color-ink, #3b2f2a);
+         font-family: var(--font-body, Nunito, Arial, sans-serif); }
+  h1 { font-family: var(--font-display, Fraunces, Georgia, serif); font-weight: 600; margin: 0 0 8px; font-size: 28px; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+  .hint { opacity: .75; margin: 0 0 24px; line-height: 1.5; }
+  button { font: inherit; background: var(--color-ink, #3b2f2a); color: var(--color-cream, #fbf4e9); border: 0;
+           border-radius: 999px; padding: 10px 20px; cursor: pointer; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/SplitText.min.js"></script>
+</head>
+<body>
+<style>
+  .phone { width:360px; height:640px; margin:0 auto; border-radius:28px; background:var(--color-dusk,#5e668d);
+           position:relative; overflow:hidden; display:flex; align-items:center; padding:40px; }
+  .caption { font-family:var(--font-display,Fraunces,serif); font-size:34px; line-height:1.25; color:var(--color-cream,#fbf4e9); }
+  .caption .word { display:inline-block; }
+  .caption .word.on { color:var(--color-honey,#f9d27d); }
+  .mask { overflow:hidden; display:inline-block; vertical-align:bottom; padding-bottom:4px; }
+</style>
+<div class="wrap">
+  <h1>06 · Text reveal + word highlight</h1>
+  <p class="hint">The caption style used by many short-form explainers: words rise in one after another (<b>stagger</b>), then each word lights up in time with an imaginary voiceover (karaoke-style). Uses GSAP's SplitText plugin.</p>
+  <div class="phone"><p class="caption" id="cap">Small lights still make a whole room warm.</p></div>
+  <p style="text-align:center"><button id="again">Play again</button></p>
+</div>
+<script>
+  gsap.registerPlugin(SplitText);
+  let tl;
+  // Wait for the web font, otherwise words are measured with the fallback font and can jump.
+  document.fonts.ready.then(() => {
+    const split = SplitText.create("#cap", { type: "words", wordsClass: "word", mask: "words" });
+    tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+    tl.from(split.words, { yPercent: 110, duration: 0.6, ease: "power3.out", stagger: 0.06 }) // tokens: stagger 60 ms
+      .addLabel("speak", "+=0.2");
+    split.words.forEach((w, i) => {
+      tl.call(() => { split.words.forEach(x => x.classList.remove("on")); w.classList.add("on"); }, null, `speak+=${i * 0.32}`);
+    });
+    tl.call(() => split.words.forEach(x => x.classList.remove("on")), null, `speak+=${split.words.length * 0.32 + 0.4}`)
+      .to(split.words, { opacity: 0, duration: 0.4, stagger: 0.03 }, "+=0.6");
+  });
+  document.querySelector("#again").addEventListener("click", () => tl && tl.restart());
+</script>
+</body>
+</html>

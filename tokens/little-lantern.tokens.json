@@ -1,0 +1,89 @@
+{
+  "$description": "Design tokens for Little Lantern, a made-up brand used as the worked example in this guide. Format: W3C Design Tokens Community Group (DTCG) Format Module 2025.10 - https://www.designtokens.org/TR/2025.10/format/",
+  "color": {
+    "$type": "color",
+    "cream":   { "$value": { "colorSpace": "srgb", "components": [0.984, 0.957, 0.914], "hex": "#fbf4e9" }, "$description": "Page / paper background" },
+    "paper":   { "$value": { "colorSpace": "srgb", "components": [0.957, 0.906, 0.835], "hex": "#f4e7d5" }, "$description": "Cards, second background layer" },
+    "ink":     { "$value": { "colorSpace": "srgb", "components": [0.231, 0.184, 0.165], "hex": "#3b2f2a" }, "$description": "Text and outlines. Never pure black." },
+    "apricot": { "$value": { "colorSpace": "srgb", "components": [0.949, 0.651, 0.353], "hex": "#f2a65a" }, "$description": "Primary accent, the lantern glow, mascot body" },
+    "honey":   { "$value": { "colorSpace": "srgb", "components": [0.976, 0.824, 0.490], "hex": "#f9d27d" }, "$description": "Highlights, light" },
+    "sage":    { "$value": { "colorSpace": "srgb", "components": [0.608, 0.710, 0.604], "hex": "#9bb59a" }, "$description": "Secondary accent, plants, calm" },
+    "dusk":    { "$value": { "colorSpace": "srgb", "components": [0.369, 0.400, 0.553], "hex": "#5e668d" }, "$description": "Night scenes, shadows" },
+    "rose":    { "$value": { "colorSpace": "srgb", "components": [0.910, 0.627, 0.627], "hex": "#e8a0a0" }, "$description": "Cheeks, small warm details" },
+    "text":    { "$value": "{color.ink}" },
+    "background": { "$value": "{color.cream}" },
+    "accent":  { "$value": "{color.apricot}" }
+  },
+  "font": {
+    "display": { "$type": "fontFamily", "$value": ["Fraunces", "Georgia", "serif"], "$description": "Headlines. Google Fonts, SIL Open Font License." },
+    "body":    { "$type": "fontFamily", "$value": ["Nunito", "Helvetica Neue", "Arial", "sans-serif"], "$description": "Captions and body. Google Fonts, SIL Open Font License." },
+    "weight": {
+      "$type": "fontWeight",
+      "regular": { "$value": 400 },
+      "bold":    { "$value": 700 }
+    },
+    "size": {
+      "$type": "dimension",
+      "caption":  { "$value": { "value": 56, "unit": "px" }, "$description": "On-video caption at 1080 px wide" },
+      "headline": { "$value": { "value": 96, "unit": "px" } },
+      "small":    { "$value": { "value": 36, "unit": "px" } }
+    }
+  },
+  "space": {
+    "$type": "dimension",
+    "1": { "$value": { "value": 8,  "unit": "px" } },
+    "2": { "$value": { "value": 16, "unit": "px" } },
+    "3": { "$value": { "value": 24, "unit": "px" } },
+    "4": { "$value": { "value": 40, "unit": "px" } },
+    "5": { "$value": { "value": 64, "unit": "px" } },
+    "6": { "$value": { "value": 104, "unit": "px" } },
+    "safe": { "$value": { "value": 120, "unit": "px" }, "$description": "Minimum margin from every edge of a 1080 x 1920 frame (our house rule, not a platform spec)" }
+  },
+  "radius": {
+    "$type": "dimension",
+    "soft":  { "$value": { "value": 16, "unit": "px" } },
+    "round": { "$value": { "value": 999, "unit": "px" } }
+  },
+  "motion": {
+    "duration": {
+      "$type": "duration",
+      "instant": { "$value": { "value": 100,  "unit": "ms" }, "$description": "Tiny feedback, a blink" },
+      "quick":   { "$value": { "value": 200,  "unit": "ms" }, "$description": "Small UI changes" },
+      "base":    { "$value": { "value": 400,  "unit": "ms" }, "$description": "Most enters and moves" },
+      "gentle":  { "$value": { "value": 700,  "unit": "ms" }, "$description": "Big moves, scene elements" },
+      "slow":    { "$value": { "value": 1200, "unit": "ms" }, "$description": "Scene transitions" },
+      "breath":  { "$value": { "value": 3200, "unit": "ms" }, "$description": "One full breathing cycle (in + out)" },
+      "stagger": { "$value": { "value": 60,   "unit": "ms" }, "$description": "Delay between items in a list or between words" }
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "enter": { "$value": [0.16, 1, 0.3, 1],   "$description": "Things arriving: fast start, soft landing (same curve as easeOutExpo on easings.net)" },
+      "exit":  { "$value": [0.7, 0, 0.84, 0],   "$description": "Things leaving: slow start, fast exit (easeInExpo)" },
+      "move":  { "$value": [0.65, 0, 0.35, 1],  "$description": "Moving from A to B on screen (easeInOutCubic)" },
+      "soft":  { "$value": [0.37, 0, 0.63, 1],  "$description": "Breathing, floating, loops (easeInOutSine)" },
+      "linear":{ "$value": [0, 0, 1, 1],        "$description": "Only for constant motion: rotation of a wheel, scrolling background" }
+    },
+    "spring": {
+      "$description": "DTCG 2025.10 has no spring type, so springs live in $extensions. Values follow the Remotion spring() config names.",
+      "$extensions": {
+        "dev.codedmotion.spring": {
+          "gentle": { "stiffness": 100, "damping": 15, "mass": 1 },
+          "bouncy": { "stiffness": 180, "damping": 10, "mass": 1 },
+          "snappy": { "stiffness": 300, "damping": 25, "mass": 1 }
+        }
+      }
+    },
+    "video": {
+      "$description": "Frame settings for rendered video",
+      "$extensions": {
+        "dev.codedmotion.video": {
+          "fps": 30,
+          "reel":   { "width": 1080, "height": 1920 },
+          "feed":   { "width": 1080, "height": 1350 },
+          "square": { "width": 1080, "height": 1080 },
+          "wide":   { "width": 1920, "height": 1080 }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "coded-motion",
+  "private": true,
+  "type": "module",
+  "description": "Tools for the Coded Motion guide: token build, example checks, frame rendering.",
+  "scripts": {
+    "tokens": "node scripts/build-tokens.mjs",
+    "check": "node scripts/check-examples.mjs",
+    "render": "node scripts/render-frames.mjs"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^24.0.0"
+  }
+}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Frame-driven scene for video export · Coded Motion</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../tokens/tokens.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Nunito:wght@400;700&display=swap" />
+<style>
+  /* Fallbacks after the comma keep this file working even without tokens.css */
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: var(--color-cream, #fbf4e9); color: var(--color-ink, #3b2f2a);
+         font-family: var(--font-body, Nunito, Arial, sans-serif); }
+  h1 { font-family: var(--font-display, Fraunces, Georgia, serif); font-weight: 600; margin: 0 0 8px; font-size: 28px; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+  .hint { opacity: .75; margin: 0 0 24px; line-height: 1.5; }
+  button { font: inherit; background: var(--color-ink, #3b2f2a); color: var(--color-cream, #fbf4e9); border: 0;
+           border-radius: 999px; padding: 10px 20px; cursor: pointer; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js"></script>
+</head>
+<body style="margin:0;overflow:hidden">
+<style>
+  #stage { width:1080px; height:1920px; background:var(--color-cream,#fbf4e9); position:relative; overflow:hidden; transform-origin:0 0; }
+  #sun { position:absolute; left:390px; top:600px; width:300px; height:300px; border-radius:50%; background:var(--color-apricot,#f2a65a);
+         box-shadow:0 0 120px var(--color-honey,#f9d27d); }
+  #title { position:absolute; left:120px; right:120px; top:1180px; text-align:center; font-family:var(--font-display,Fraunces,serif);
+           font-size:96px; line-height:1.1; color:var(--color-ink,#3b2f2a); }
+</style>
+<div id="stage"><div id="sun"></div><div id="title">Good morning,<br>little lantern</div></div>
+<script>
+  // A video is a function of time: this page draws frame N on request instead of playing in real time.
+  // Open normally to preview. scripts/render-frames.mjs calls window.renderFrame(n) for every frame.
+  const FPS = 30, DURATION = 4;                     // tokens: video.fps = 30
+  const fit = () => { const s = Math.min(innerWidth / 1080, innerHeight / 1920); document.getElementById("stage").style.transform = `scale(${s})`; };
+  if (!new URLSearchParams(location.search).has("render")) { fit(); addEventListener("resize", fit); }
+
+  const tl = gsap.timeline({ paused: true });       // paused: we control time ourselves
+  tl.from("#sun",   { y: 500, scale: 0.6, duration: 1.6, ease: "power3.out" })
+    .from("#title", { opacity: 0, y: 60, duration: 0.8, ease: "power2.out" }, "-=0.6")
+    .to("#sun",     { scale: 1.06, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: 1 }, ">-0.2")
+    .to({}, { duration: Math.max(0, DURATION - tl.duration()) }); // pad to exact length
+
+  window.TOTAL_FRAMES = FPS * DURATION;
+  window.renderFrame = (n) => { tl.seek(n / FPS, false); }; // deterministic: same n -> same picture
+  if (!new URLSearchParams(location.search).has("render")) tl.play();
+</script>
+</body>
+</html>
