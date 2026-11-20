@@ -10,6 +10,9 @@ docs_dir: docs
 hooks:
   - scripts/mkdocs_hooks.py
 
+extra_javascript:
+  - javascripts/content-links.js
+
 theme:
   name: material
   language: en
