@@ -8,7 +8,7 @@
 A web page plays in real time; a slow computer drops frames. A **video** needs every frame drawn perfectly, one by one. So we make animation **frame-driven**: "what does frame 47 look like?" always has the same answer.
 
 ### 2. Two ways to get a video
-- **HTML + GSAP:** pause the timeline and jump to each frame: `tl.seek(frame / 30)`. A script opens the page in a hidden (headless) Chrome, takes a screenshot per frame and joins them with ffmpeg. That's `scripts/render-frames.mjs` + `examples/html/08-frame-render.html`.
+- **HTML + GSAP:** pause the timeline and jump to each frame: `tl.seek(frame / 30)`. A script opens the page in a hidden (headless) Chrome, takes a screenshot per frame and joins them with ffmpeg. That's `scripts/render-frames.mjs` + `examples/html/08-frame-render.html`. [Open the live demo](../examples/08-frame-render.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/08-frame-render.html).
 - **Remotion:** you write the video as React components. Remotion handles frames, audio and export ([remotion.dev](https://www.remotion.dev/docs/)). This is our main video tool.
 
 ### 3. Remotion in four ideas

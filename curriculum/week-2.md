@@ -19,6 +19,8 @@ gsap.to("#ball", { x: 600, duration: 0.7, ease: "power2.out" });
 ```
 Open `examples/html/01-easing.html`: nine balls, same distance and duration, different eases. Watch which ones feel "robotic" (linear) and which feel "alive".
 
+[Open the live demo](../examples/01-easing.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/01-easing.html).
+
 ### 3. Bezier curves for custom easing
 An easing curve can be written as 4 numbers: `cubic-bezier(0.16, 1, 0.3, 1)`. Play with them at [cubic-bezier.com](https://cubic-bezier.com/) and compare named curves at [easings.net](https://easings.net/). In GSAP use `CustomEase`:
 ```js

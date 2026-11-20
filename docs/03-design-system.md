@@ -103,6 +103,8 @@ Our *Little Lantern* tokens are slower than UI systems on purpose. Videos are wa
 
 Add a token `motion.duration.blink` = 120 ms, rebuild, and use it in `examples/html/07-breathing-idle.html` instead of the hard-coded numbers.
 
+[Open the live demo](examples/07-breathing-idle.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/07-breathing-idle.html).
+
 ## Sources
 
 - DTCG Format Module 2025.10 (duration, cubicBezier, aliases, $extensions): <https://www.designtokens.org/TR/2025.10/format/>

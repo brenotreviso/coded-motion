@@ -6,7 +6,7 @@
 |---|---|---|
 | `tokens/` | Little Lantern tokens (DTCG JSON) + generated CSS/JS | Start a brand: copy, rename, change values |
 | `library/` | `life-kit.js` (breathe, blink, float, sway, arrive, idle), `text-kit.js` (word reveal), Remotion `life-kit.tsx`, `CHECKS.md` | Make things alive without rewriting code |
-| `examples/html/` | 10 small single-page demos (00-09) | Learn one idea at a time |
+| `examples/html/` | 10 small single-page demos (00-09). [Open the list](examples.md) | Learn one idea at a time |
 | `examples/remotion-hello/` | Minimal Remotion video with tokens, spring, breath, blinks, word reveal | Start any video project |
 | `scripts/` | `build-tokens.mjs`, `check-examples.mjs`, `render-frames.mjs` | Tokens → code, smoke-test, render HTML to MP4 |
 | `prompts/` | Ready prompts for Claude, OpenAI, Gemini, Grok, Cursor | Copy, fill the brackets |
@@ -28,8 +28,8 @@ cd examples/remotion-hello && npm install && npm run studio
 
 | # | Exercise | Practises | Done when |
 |---|---|---|---|
-| E1 | Change `00-hello-gsap` so the dot goes right, then down, then fades | Timelines | Plays in order without gaps |
-| E2 | In `01-easing`, add your own CustomEase and describe its "personality" in 3 words | Easing | A friend can guess which ball is yours |
+| E1 | Change `00-hello-gsap` so the dot goes right, then down, then fades. [Open the live demo](examples/00-hello-gsap.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/00-hello-gsap.html) | Timelines | Plays in order without gaps |
+| E2 | In `01-easing`, add your own CustomEase and describe its "personality" in 3 words. [Open the live demo](examples/01-easing.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/01-easing.html) | Easing | A friend can guess which ball is yours |
 | E3 | Make a pendulum with the wrong anchor, then fix it | Anchor points | It swings from the top |
 | E4 | Bouncing ball with squash, stretch and anticipation | Squash & stretch | Volume looks constant |
 | E5 | A leaf falling on an arc (MotionPath) with `autoRotate` | Arcs | No straight lines |

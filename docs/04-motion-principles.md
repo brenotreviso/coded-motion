@@ -2,7 +2,7 @@
 
 > **Goal:** understand *why* some movement feels alive and some feels stiff, and turn each idea into code you can type.
 
-Everything here works the same in GSAP, CSS, Canvas or Remotion. Only the syntax changes. Open the examples in `examples/html/` as you read.
+Everything here works the same in GSAP, CSS, Canvas or Remotion. Only the syntax changes. Open the examples in `examples/html/` as you read, or use the live demo link under each one. The full list is on the [Examples](examples.md) page.
 
 ## Part A · Disney's 12 principles, translated to code
 
@@ -66,7 +66,7 @@ CSS and our tokens write a curve as `cubic-bezier(x1, y1, x2, y2)`. Those are th
 - GSAP's built-in names (`power1`-`power4`, `sine`, `expo`, `back`, `elastic`, `bounce`) each come in `.in`, `.out`, `.inOut`. Their docs include a visualiser ([GSAP eases](https://gsap.com/docs/v3/Eases/)). GSAP's docs put it simply: changing the ease "can adjust the entire feel and personality of your animation".
 - Custom brand curves: `CustomEase.create("ll-enter", "0.16,1,0.3,1")` ([CustomEase](https://gsap.com/docs/v3/Eases/CustomEase/)).
 
-▶ **Try it:** `examples/html/01-easing.html`: nine balls, same duration, different easing. <a id="ex-01"></a>
+▶ **Try it:** `examples/html/01-easing.html`: nine balls, same duration, different easing. [Open the live demo](examples/01-easing.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/01-easing.html). <a id="ex-01"></a>
 
 ## Part D · Springs
 
@@ -93,7 +93,7 @@ Straight lines read as mechanical. Two ways to get arcs:
 
 Learn how SVG path commands work with Josh W. Comeau's interactive guide ([An Interactive Guide to SVG Paths](https://www.joshwcomeau.com/svg/interactive-guide-to-paths/)).
 
-▶ **Try it:** `examples/html/02-arcs.html`: straight path vs bezier arc, with visible control points. <a id="ex-02"></a>
+▶ **Try it:** `examples/html/02-arcs.html`: straight path vs bezier arc, with visible control points. [Open the live demo](examples/02-arcs.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/02-arcs.html). <a id="ex-02"></a>
 
 ## Part F · Anchor point (transform-origin)
 
@@ -109,7 +109,7 @@ Every rotation and scale happens **around a point**. In After Effects it's the *
 
 In GSAP: `transformOrigin: "50% 100%"`. For SVG, GSAP also has `svgOrigin: "200 350"` (a point in the SVG's own coordinates) ([GSAP CSSPlugin docs](https://gsap.com/docs/v3/GSAP/CorePlugins/CSS/)).
 
-▶ **Try it:** `examples/html/03-transform-origin.html`: same rotation, three anchors; only one swings like a real lantern.
+▶ **Try it:** `examples/html/03-transform-origin.html`: same rotation, three anchors; only one swings like a real lantern. [Open the live demo](examples/03-transform-origin.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/03-transform-origin.html).
 
 ## Part G · Motion blur
 
@@ -122,7 +122,7 @@ Real cameras keep the shutter open for a fraction of each frame, so fast objects
 
 Use blur only where speed is high; slow, gentle brands rarely need it.
 
-▶ **Try it:** `examples/html/04-motion-blur.html`: none vs sub-frame samples vs stretch. <a id="ex-04"></a>
+▶ **Try it:** `examples/html/04-motion-blur.html`: none vs sub-frame samples vs stretch. [Open the live demo](examples/04-motion-blur.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/04-motion-blur.html). <a id="ex-04"></a>
 
 ## Part H · Layering and depth
 
@@ -142,7 +142,7 @@ tl.to("#body",  { y: 0, duration: 0.4, ease: "power2.out" })
 
 Rule: **nothing important stops on the same frame as everything else.**
 
-▶ **Try it:** `examples/html/07-breathing-idle.html`. <a id="ex-07"></a>
+▶ **Try it:** `examples/html/07-breathing-idle.html`. [Open the live demo](examples/07-breathing-idle.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/07-breathing-idle.html). <a id="ex-07"></a>
 
 ## Part J · Staging for short vertical video
 
@@ -151,7 +151,7 @@ Rule: **nothing important stops on the same frame as everything else.**
 - Hold important text still long enough to read (our rule of thumb: at least as long as it takes you to read it aloud twice; test it on a phone).
 - Use the word-by-word reveal with a highlight on the current word: it was common in the 2026 explainer reels we reviewed ([chapter 9](09-trends.md)).
 
-▶ **Try it:** `examples/html/06-text-reveal.html`. <a id="ex-06"></a>
+▶ **Try it:** `examples/html/06-text-reveal.html`. [Open the live demo](examples/06-text-reveal.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/06-text-reveal.html). <a id="ex-06"></a>
 
 ## Part K · Performance and accessibility (for anything shown live in a browser)
 
@@ -159,11 +159,13 @@ Rule: **nothing important stops on the same frame as everything else.**
 - Respect **reduced motion**: MDN notes that animations such as "scaling or panning large objects can be vestibular motion triggers" ([MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)). Example 07 checks `prefers-reduced-motion` and turns off the loops.
 - Rendered videos aren't affected by the browser's speed, because they're rendered frame by frame ([chapter 7](07-video-pipeline.md)).
 
-▶ **Try it:** `examples/html/05-squash-stretch.html` for squash, stretch and anticipation together. <a id="ex-05"></a>
+▶ **Try it:** `examples/html/05-squash-stretch.html` for squash, stretch and anticipation together. [Open the live demo](examples/05-squash-stretch.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/05-squash-stretch.html). <a id="ex-05"></a>
 
 ## Exercise
 
 Take `00-hello-gsap.html`. Make the dot (1) anticipate (move left 30 px first), (2) travel on an arc, (3) squash when it stops, and (4) have a small "tail" dot that follows through. Then show it to someone and ask: does it feel alive?
+
+[Open the live demo](examples/00-hello-gsap.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/00-hello-gsap.html).
 
 ## Sources
 

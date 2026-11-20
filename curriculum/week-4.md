@@ -23,12 +23,18 @@ document.fonts.ready.then(() => {
 ```
 Wait for fonts first, or the words are measured in the wrong font. See `examples/html/06-text-reveal.html`.
 
+[Open the live demo](../examples/06-text-reveal.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/06-text-reveal.html).
+
 ### 3. A breathing idle
 A character that stands perfectly still looks dead. The minimum **idle**: breathe (tiny scale up and down, anchored at the base), blink at random intervals, maybe float a little. See `examples/html/07-breathing-idle.html`, then do the same with one line using the library:
 ```js
 CM.idle({ body: "#glow", eyes: ".eye", flame: "#flame" });
 ```
+[Open the live demo](../examples/07-breathing-idle.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/07-breathing-idle.html).
+
 (see `examples/html/09-library-demo.html`).
+
+[Open the live demo](../examples/09-library-demo.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/09-library-demo.html).
 
 ### 4. Layering and staging
 Split the scene into layers: background, character, text. Move them separately (far layers less). Show **one** main thing at a time so the eye knows where to look.

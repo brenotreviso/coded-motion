@@ -43,10 +43,30 @@ Side paths ──────────────► Three.js (3D), Lottie &
 
 ## How to use this guide
 
-1. Read a chapter.
-2. Open the matching example in `examples/html/` by double-clicking it (it opens in your browser).
-3. Change one number, save, refresh. Notice what changed.
-4. Do the exercise at the end of the chapter, or follow the [6-week curriculum](curriculum/README.md).
+Read a chapter, then look at the example it talks about. You can do that in two ways.
+
+### Option A · Click and watch
+
+You do not need to download or install anything.
+
+1. Open the [Examples](examples.md) page, or click **Open the live demo** in the chapter you are reading.
+2. The animation opens in your **browser**: the program you already use for websites (Chrome, Safari, Firefox or Edge).
+3. Watch it. Click another demo when you want a different idea.
+
+### Option B · Change one number
+
+Do this when you want to edit an example and see your change.
+
+1. Open this project on GitHub: [brenotreviso/coded-motion](https://github.com/brenotreviso/coded-motion). A **repository** (people also say **repo**) is the project's folder, stored on that website.
+2. Click the green **Code** button, then **Download ZIP**. A **ZIP** is one packed file that holds every file in the project.
+3. **Unzip** it so your computer turns that packed file back into a normal folder. On a Mac, double-click the ZIP. On Windows, right-click it and choose **Extract All**.
+4. Open the folder, then `examples`, then `html`. Each demo is one file ending in `.html`. Pick the one that matches the chapter, for example `00-hello-gsap.html`.
+5. Open that file in a **plain text editor**: a program that shows the file as letters you can change, and does not add its own formatting. [VS Code](https://code.visualstudio.com/) is a free one. On a Mac, TextEdit works after you choose **Format → Make Plain Text**.
+6. Find a number such as `duration: 1`. **Duration** means how many seconds that movement takes. Change `1` to `3`.
+7. Save the file.
+8. Open that same file in your browser (double-click it, or drag it onto a browser window). The dot should move more slowly. Change the number again, save, then **refresh** the page (reload it with the round arrow, or Command+R / Ctrl+R) to see the new speed.
+
+Then do the exercise at the end of the chapter, or follow the [6-week curriculum](curriculum/README.md).
 
 **For AI agents:** don't read everything. Read [`AGENTS.md`](https://github.com/brenotreviso/coded-motion/blob/main/AGENTS.md) first; it tells you which chapter to open for which job.
 

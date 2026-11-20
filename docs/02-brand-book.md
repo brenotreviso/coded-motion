@@ -50,7 +50,7 @@ All colours live in [`tokens/little-lantern.tokens.json`](https://github.com/bre
 
 - Round corners (`radius.soft = 16px`), soft blobs, paper texture.
 - No photos of real people. No human skin tones on figures; characters are objects or creatures (a lantern, a cup, a cat).
-- Mascot: **Glow**, a round apricot lantern-blob with two dot eyes and a small flame. No arms or legs. It is easy to animate well and hard to animate badly (see [example 07](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/07-breathing-idle.html)).
+- Mascot: **Glow**, a round apricot lantern-blob with two dot eyes and a small flame. No arms or legs. It is easy to animate well and hard to animate badly ([Open the live demo](examples/07-breathing-idle.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/07-breathing-idle.html)).
 
 ## 6. Motion personality (the part most brand books forget)
 

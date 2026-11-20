@@ -70,6 +70,8 @@ Export frames at the key moments (e.g. frames 60, 240, 420) and look at them at 
 
 Render cheap first: half size, or every 10th frame. On our test machine, the 4-second example `08-frame-render.html` took **about 2 s** as a 12-frame quarter-size preview versus **about 8 s** as a full 120-frame half-size render (our own measurement, 20 Nov 2026, using `scripts/render-frames.mjs`). The bigger the video, the bigger the saving.
 
+[Open the live demo](examples/08-frame-render.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/08-frame-render.html).
+
 ### 9. Sound & captions
 
 Sound comes last because it depends on final timing. Many short-form viewers watch muted, so design so **the video makes sense without sound** (a rule in lateascent's prompt: "make it work muted").

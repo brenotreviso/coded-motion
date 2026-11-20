@@ -26,7 +26,7 @@ This guide goes from the basics (what an animation is) to shipping a branded ver
 11. [Agent instructions](11-agent-instructions.md): how any AI agent should apply this guide
 12. [Library, exercises & extras](12-library-and-exercises.md)
 
-Extras: [Fix stiff motion (cheat sheet)](fix-stiff-motion.md) · [Glossary](glossary.md) · [Prompt library](prompts/README.md) · [Checklists](checklists/README.md) · [All sources](sources.md)
+Extras: [Examples](examples.md) · [Fix stiff motion (cheat sheet)](fix-stiff-motion.md) · [Glossary](glossary.md) · [Prompt library](prompts/README.md) · [Checklists](checklists/README.md) · [All sources](sources.md)
 
 ## Licence
 

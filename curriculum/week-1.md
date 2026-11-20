@@ -46,6 +46,8 @@ Each step starts when the previous one ends. Add `"-=0.2"` after the options to 
 ### 5. See the reference
 Open `examples/html/00-hello-gsap.html` in Chrome. Right-click → **Inspect** → **Console**: no red errors means it's working. Change one number, save, refresh. Repeat until you can predict what changes.
 
+[Open the live demo](../examples/00-hello-gsap.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/00-hello-gsap.html).
+
 ## Project · "A dot that says hello"
 
 Make one HTML file where:

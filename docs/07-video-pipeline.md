@@ -45,7 +45,7 @@ Example project: `examples/remotion-hello/` (tested 20 Nov 2026 with Remotion 4.
 
 ## Path B · Frame-driven HTML + headless Chrome + ffmpeg
 
-Example: `examples/html/08-frame-render.html` + `scripts/render-frames.mjs` (tested 20 Nov 2026).
+Example: `examples/html/08-frame-render.html` + `scripts/render-frames.mjs` (tested 20 Nov 2026). [Open the live demo](examples/08-frame-render.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/08-frame-render.html).
 
 The page does three things:
 
@@ -92,7 +92,7 @@ ffmpeg -i video.mp4 -i music.wav -c:v copy -c:a aac -shortest final.mp4
 
 ## Captions
 
-- Word-by-word reveals with a highlight on the current word are common in today's explainer reels (see [chapter 9](09-trends.md)). See `examples/html/06-text-reveal.html`.
+- Word-by-word reveals with a highlight on the current word are common in today's explainer reels (see [chapter 9](09-trends.md)). See `examples/html/06-text-reveal.html`. [Open the live demo](examples/06-text-reveal.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/06-text-reveal.html).
 - Remotion has a captions package and docs ([Remotion captions](https://www.remotion.dev/docs/captions/)).
 - Keep captions inside the safe margins. App buttons, the account name and the caption text cover parts of the frame; check on your own phone before posting.
 
@@ -110,6 +110,8 @@ ffmpeg -i video.mp4 -i music.wav -c:v copy -c:a aac -shortest final.mp4
 ## Exercise
 
 Change `08-frame-render.html` so the sun sets instead of rises. Render a 12-frame contact sheet first, check it, then render the MP4.
+
+[Open the live demo](examples/08-frame-render.html) · [View source on GitHub](https://github.com/brenotreviso/coded-motion/blob/main/examples/html/08-frame-render.html).
 
 ## Sources
 
