@@ -25,7 +25,7 @@ Evidence you can open:
 
 ## 2. The format that keeps winning
 
-From the reference reels and X videos we decoded in November 2026 (11 examples sent by Breno, plus ~25 code-made references):
+From the reference reels and X videos we decoded in November 2026 (11 examples sent by the author, plus ~25 code-made references):
 
 - **Vertical 9:16** (sometimes 4:5; 16:9 for long X/YouTube pieces).
 - **One idea, told as a tiny story**, often a question ("Why did GTA 6 take 13 years?", "What makes a place feel like home?").
