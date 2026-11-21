@@ -5,7 +5,7 @@ site_url: https://brenotreviso.github.io/coded-motion/
 repo_url: https://github.com/brenotreviso/coded-motion
 repo_name: brenotreviso/coded-motion
 edit_uri: edit/main/docs/
-copyright: Text CC BY 4.0 · Code MIT · © 2026 Breno Bergamin (Breno Treviso)
+copyright: Text, docs and images CC BY-NC-SA 4.0 · Code MIT · © 2026 Breno Bergamin (Breno Treviso)
 docs_dir: docs
 hooks:
   - scripts/mkdocs_hooks.py

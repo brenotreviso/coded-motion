@@ -98,7 +98,7 @@ Links to `github.com/brenotreviso/coded-motion/...` point to where this repo **w
 - [<easing-function> CSS type - CSS · MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function)
 - [Basic animations - Web APIs · MDN](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations)
 - [blur() CSS function - CSS · MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/blur)
-- [Deed - Attribution 4.0 International - Creative Commons](https://creativecommons.org/licenses/by/4.0/)
+- [Deed - Attribution-NonCommercial-ShareAlike 4.0 International - Creative Commons](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 - [Design Tokens Format Module 2025.10](https://www.designtokens.org/TR/2025.10/format/)
 - [OfflineAudioContext - Web APIs · MDN](https://developer.mozilla.org/en-US/docs/Web/API/OfflineAudioContext)
 - [offset-path CSS property - CSS · MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path)

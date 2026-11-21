@@ -30,6 +30,6 @@ Extras: [Examples](examples.md) · [Fix stiff motion (cheat sheet)](fix-stiff-mo
 
 ## Licence
 
-Text: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Code: MIT. See `LICENSE` and `LICENSE-CODE` in the repo.
+Text, docs and images: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Code (examples, scripts, templates, JS/CSS): MIT. See `LICENSE` and `LICENSE-CODE` in the repo.
 
 *Last full source check: 20 November 2026.*

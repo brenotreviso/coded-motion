@@ -1,5 +1,8 @@
 # The Coded Motion Guide
 
+[![Text: CC BY-NC-SA 4.0](https://img.shields.io/badge/text-CC%20BY--NC--SA%204.0-ef9426)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![Code: MIT](https://img.shields.io/badge/code-MIT-blue)](LICENSE-CODE)
+
 Make warm, alive motion graphics with code (HTML + GSAP, Remotion) and direct AI agents to do it well, without wasting usage.
 
 Written for **beginners**: every term is defined ([glossary](docs/glossary.md)), every step is small, and every external claim links to a source checked on 20 Nov 2026 ([sources](docs/sources.md)).
@@ -18,7 +21,7 @@ Written for **beginners**: every term is defined ([glossary](docs/glossary.md)),
 
 ```
 coded-motion/
-├── README.md · AGENTS.md · CLAUDE.md · CHANGELOG.md · LICENSE (CC BY 4.0) · LICENSE-CODE (MIT)
+├── README.md · AGENTS.md · CLAUDE.md · CHANGELOG.md · LICENSE (CC BY-NC-SA 4.0) · LICENSE-CODE (MIT)
 ├── docs/                 13 chapters (00-12) + fix-stiff-motion, glossary, sources
 ├── curriculum/           README + week-1 … week-6 (lesson, project, checklist)
 ├── prompts/              Claude, OpenAI, Gemini, Grok, Cursor + shared snippets
@@ -61,7 +64,9 @@ mkdocs serve        # http://127.0.0.1:8000
 
 ## Licence
 
-- Text, images and docs: [Creative Commons Attribution 4.0](LICENSE) (CC BY 4.0).
-- Code (examples, library, scripts, tokens): [MIT](LICENSE-CODE).
+Text, docs and images, and code, are under different licences.
+
+- Text, docs and images: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) ([LICENSE](LICENSE)).
+- Code (examples, scripts, templates, JS/CSS): [MIT](LICENSE-CODE).
 
 © 2026 Breno Bergamin (Breno Treviso)
